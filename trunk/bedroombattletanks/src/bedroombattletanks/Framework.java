@@ -5,6 +5,7 @@ import jgame.*;
 import jgame.platform.*;
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class Framework extends JGEngine {
 
 	public static void main(String [] args) {
