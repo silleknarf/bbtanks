@@ -1,0 +1,61 @@
+splash_image	-	0	/resources/splash-screen.jpg	-
+
+our-score	/resources/our-score-bitches.wav
+
+explosion	/resources/battle-explosion.wav
+
+paper-ball-small	-	0	/resources/paper-ball-small.gif	-
+
+flag	-	0	/resources/flag-very-small.png	-
+
+bedH	-	0	/resources/bed.gif	-
+bedV	-	0	/resources/bed.gif	r
+
+chairH	-	0	/resources/chair.gif	-
+chairV	-	0	/resources/chair.gif	r
+
+pencilH	-	0	/resources/pencil.gif	-
+pencilV	-	0	/resources/pencil.gif	r
+
+
+rugH	-	0	/resources/rug.gif	-
+rugV	-	0	/resources/rug.gif	r
+
+tank-bit1	-	0	/resources/tank-bit1.gif	-
+tank-bit2	-	0	/resources/tank-bit2.gif	-
+tank-bit3	-	0	/resources/tank-bit3.gif	-
+tank-bit4	-	0	/resources/tank-bit1.gif	r
+tank-bit5	-	0	/resources/tank-bit2.gif	r
+tank-bit6	-	0	/resources/tank-bit3.gif	r
+tank-bit7	-	0	/resources/tank-bit1.gif	l
+tank-bit8	-	0	/resources/tank-bit2.gif	l
+tank-bit9	-	0	/resources/tank-bit3.gif	l
+
+target-red	-	0	/resources/target-red.gif	-
+target-blue	-	0	/resources/target-blue.gif	-
+
+wooden-floor	-	0	/resources/wooden-floor-large.jpg	-
+
+health-box	-	0	/resources/health-box.jpeg	-
+curse-box	-	0	/resources/curse-box.jpeg	-
+friction-box	-	0	/resources/friction-box.jpeg	-
+muddle-box	-	0	/resources/muddle-box.jpeg	-
+ 
+tank_sheet	/resources/tank-line.gif	0	0	43	48	1	0
+
+tank_0000	-	0	tank_sheet	0	-
+tank_0225	-	0	tank_sheet	1	-
+tank_0450	-	0	tank_sheet	2	-
+tank_0675	-	0	tank_sheet	3	-
+tank_0900	-	0	tank_sheet	4	-
+tank_1125	-	0	tank_sheet	5	-
+tank_1350	-	0	tank_sheet	6	-
+tank_1575	-	0	tank_sheet	7	-
+tank_1800	-	0	tank_sheet	8	-
+tank_2025	-	0	tank_sheet	9	-
+tank_2250	-	0	tank_sheet	10	-
+tank_2475	-	0	tank_sheet	11	-
+tank_2700	-	0	tank_sheet	12	-
+tank_2925	-	0	tank_sheet	13	-
+tank_3150	-	0	tank_sheet	14	-
+tank_3375	-	0	tank_sheet	15	-
