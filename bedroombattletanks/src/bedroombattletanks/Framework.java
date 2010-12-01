@@ -53,7 +53,6 @@ public class Framework extends JGEngine {
 				   //      a frame again
 			);
 			
-			
 			defineMedia("/resources/data.tbl");		
 			
 			try { Thread.sleep(100); }
