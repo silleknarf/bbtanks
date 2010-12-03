@@ -1,16 +1,20 @@
 package bedroombattletanks;
 
 
+
+
 import jgame.*;
 import jgame.platform.*;
 import java.util.ArrayList;
 
-@SuppressWarnings("serial")
+
 public class Framework extends JGEngine {
+
+	
 
 	public static void main(String [] args) {
 		//new Framework(new JGPoint(640,480));
-		new Framework(new JGPoint(1224,868));
+		new Framework(new JGPoint(1024,768));
 		//new Framework(StdGame.parseSizeArgs(args,0));
 	}
 
