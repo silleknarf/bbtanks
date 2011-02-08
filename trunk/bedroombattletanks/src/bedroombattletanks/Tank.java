@@ -9,9 +9,16 @@ class Tank extends JGObject {
 			char rotateLeft; 
 			char rotateRight;
 			char fire;
+			char secondaryFire;
+			String secondaryWeapon = "";
 			String player;
 			JGColor playerColor;
 			GameInfo localInfo;
+			
+			// Fire Rate
+			int timer = 1;
+			int bulletFireRate = 10;
+			int secondaryFireRate = 50;
 			
 			double tanksFriction; 
 			
@@ -57,6 +64,7 @@ class Tank extends JGObject {
 				  char upKey, char downKey,
 				  char rotateLeftKey, char rotateRightKey,
 				  char fireKey,
+				  char secondaryFireKey,
 				  GameInfo gameInfo) {
 				// Initialise game object by calling an appropriate constructor
 				// in the JGObject class.
@@ -79,7 +87,7 @@ class Tank extends JGObject {
 				rotateLeft = rotateLeftKey;
 				rotateRight = rotateRightKey;
 				fire = fireKey;
-				localInfo.bulletTimer[collisionID] = 0;
+				secondaryFire = secondaryFireKey;
 				tanksFriction = localInfo.initialFriction;
 				setBBox(7,9,27,30);
 				if (collisionID == 2) {
@@ -92,6 +100,18 @@ class Tank extends JGObject {
 				
 				}
 			public void move() {
+				
+				timer++;
+				if (timer % bulletFireRate == 0) {
+					if (localInfo.tankData[(colid/2)-1].primaryFire > 0)
+						localInfo.tankData[(colid/2)-1].primaryFire--;
+				}
+				if (timer % secondaryFireRate == 0) {
+					if (localInfo.tankData[(colid/2)-1].secondaryFire > 0)
+						localInfo.tankData[(colid/2)-1].secondaryFire--;
+				}
+				
+				
 				int hit = 0;
 				boolean itHit = false;
 				
@@ -197,16 +217,26 @@ class Tank extends JGObject {
 				// creates a new bullet instance above the tank with the direction equal 
 				// to the orientation of the tank
 				
-				if (eng.getKey(fire)) { 
-					if (localInfo.tankData[colid][localInfo.bulletPosition] < localInfo.maxBullets && localInfo.bulletTimer[colid] == 0) {
-					new Bullet(x+tankCentreX+(tankGunXDistance*-Math.sin(Math.toRadians(orientation))),
-							   y+tankCentreY+(tankGunYDistance*-Math.cos(Math.toRadians(orientation))), 
-							   -Math.sin(Math.toRadians(orientation)),
-							   -Math.cos(Math.toRadians(orientation)), localInfo);
-					localInfo.bulletTimer[colid] = localInfo.reloadTime;
-					localInfo.tankData[colid][localInfo.bulletPosition]++;
-					}
+				 if (eng.getKey(fire)) {
+						if (localInfo.tankData[(colid/2)-1].primaryFire == 0) {
+							new Bullet(this, localInfo);
+							localInfo.tankData[(colid/2)-1].primaryFire++;
+						}
 				}
+				 if (eng.getKey(secondaryFire)) {
+						if (localInfo.tankData[(colid/2)-1].secondaryFire == 0) {
+							if (secondaryWeapon == "HomingMissile") {
+								new HomingMissile(this, localInfo);
+							} else if (secondaryWeapon == "Grenade") {
+								new Grenade(this, localInfo);
+							} else if (secondaryWeapon == "Pulse") {
+								new Pulse(this, localInfo);
+							}
+							localInfo.tankData[(colid/2)-1].secondaryFire++;
+						}
+				}
+			
+				 
 				
 				
 				switch (rangeMaker(orientation)) {
@@ -236,8 +266,9 @@ class Tank extends JGObject {
 			
 			public void hit(JGObject obj) {
 				obj.remove();
-				localInfo.tankData[colid][localInfo.livesPosition]--;
-				if (localInfo.tankData[colid][localInfo.livesPosition] <= 0){
+
+				localInfo.tankData[(colid/2)-1].lives--;
+				if (localInfo.tankData[(colid/2)-1].lives <= 0){
 					remove();
 					for (int i = 0; i < gameUtil.random(50,80,1);i++) {
 						new JGObject("boom",true,x,y,1,"tank-bit"+gameUtil.random(1,9,1),gameUtil.random(-10,10),gameUtil.random(-10,10),100);
@@ -249,7 +280,9 @@ class Tank extends JGObject {
 			public void paint() {
 				eng.setColor(playerColor);
 				eng.drawString(player,x+tankCentreX,y+62,0);
-				eng.drawString("Lives:" + localInfo.tankData[colid][localInfo.livesPosition],x+tankCentreX,y+74,0);
+				eng.drawString("Lives:" + localInfo.tankData[(colid/2)-1].lives,x+tankCentreX,y+74,0);
+				if (localInfo.tankData[(colid/2)-1].gotFlag)
+					eng.drawString("Got Flag!",x+tankCentreX,y+86,0);
 				eng.drawRect(x+tankCentreX+(tankGunXDistance*-Math.sin(Math.toRadians(orientation))),
 					     y+tankCentreY+(tankGunYDistance*-Math.cos(Math.toRadians(orientation))), 8,8, true, true);
 			}

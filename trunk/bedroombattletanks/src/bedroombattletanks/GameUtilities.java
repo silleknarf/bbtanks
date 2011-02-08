@@ -1,6 +1,7 @@
 package bedroombattletanks;
 
 import jgame.JGRectangle;
+
 import java.lang.Math;
 
 public class GameUtilities {
@@ -15,6 +16,19 @@ public class GameUtilities {
 			} else { 
 			return false;
 		}
+	}
+	
+	public double fullSpeed(double xSpeed, double ySpeed) {
+		if (xSpeed>=0 && ySpeed>=0)
+			return Math.sqrt((xSpeed*xSpeed) + (ySpeed*ySpeed));
+		else 
+			return -Math.sqrt((xSpeed*xSpeed) + (ySpeed*ySpeed));
+	}
+	public double normalSpeed(double xSpeed, double fullSpeed) {
+		if (fullSpeed>=0)
+			return Math.sqrt((fullSpeed*fullSpeed)-(xSpeed*xSpeed));
+		else
+			return -Math.sqrt((fullSpeed*fullSpeed)-(xSpeed*xSpeed));
 	}
 // Creates a random integer between start and finish 
 // on the increment specified 
@@ -36,7 +50,7 @@ public class GameUtilities {
 			selection[i] = start;
 			start++;
 		}
-		int randomIndex = (int)(range * Math.random());
+		int randomIndex = ((int)(range * Math.random()));
 		return selection[randomIndex];
 	}
 }

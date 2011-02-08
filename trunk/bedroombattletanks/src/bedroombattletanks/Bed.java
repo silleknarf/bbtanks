@@ -4,7 +4,7 @@ import jgame.JGObject;
 
 class Bed extends Obstacle {			
 	Bed(int x, int y, char orientation, GameInfo gameInfo) {
-		super("bed",x, y, "bed"+orientation, gameInfo);
+		super("bed",x, y, "bed"+orientation, gameInfo, true);
 	}			
 	public void hit(JGObject obj) {
 		obj.remove();

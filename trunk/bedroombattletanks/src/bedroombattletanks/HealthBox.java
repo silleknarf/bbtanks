@@ -12,8 +12,8 @@ class HealthBox extends PowerUp {
         }
        
         void effect(Tank activator) {
-        		localInfo.tankData[activator.colid][localInfo.livesPosition]++;
-                this.remove();
+        		localInfo.tankData[(activator.colid/2)-1].lives++;
+        		this.remove();
                 super.effect(activator);
         }
        
