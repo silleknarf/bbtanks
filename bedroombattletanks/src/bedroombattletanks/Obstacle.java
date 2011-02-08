@@ -6,16 +6,15 @@ import jgame.JGRectangle;
 public abstract class Obstacle extends JGObject {
 		int health = 3;
 		GameInfo localInfo;
-		Obstacle(String name, int x, int y, String image, GameInfo gameInfo) {
+		Obstacle(String name, int x, int y, String image, GameInfo gameInfo, Boolean solid) {
 			super(name,true, x, y, 32, image );
-			if (name != "rug")
+			if (solid != false)
 				gameInfo.objects.add(getBBox());
 			localInfo = gameInfo;
 		}
 		Obstacle(String name, int x, int y, String image, int healthValue, GameInfo gameInfo) {
 			super(name,true, x, y, 32, image );
-			if (name != "rug")
-				gameInfo.objects.add(getBBox());
+			gameInfo.objects.add(getBBox());
 			health = healthValue;
 			localInfo = gameInfo;
 		}

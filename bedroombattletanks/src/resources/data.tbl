@@ -2,11 +2,29 @@ splash_image	-	0	/resources/splash-screen.jpg	-
 
 our-score	/resources/our-score-bitches.wav
 
+hahaha	/resources/bbtanks-music/hahaha.wav
+indiana-jones	/resources/bbtanks-music/indiana-jones.wav
+in-the-hall-of-the-mountain-king	/resources/bbtanks-music/in-the-hall-of-the-mountain-king.wav
+menu	/resources/bbtanks-music/menu.wav
+palladio	/resources/bbtanks-music/palladio.wav
+ride-of-the-valkyries	/resources/bbtanks-music/ride-of-the-valkyries.wav
+submarine	/resources/bbtanks-music/submarine.wav
+the-bringer-of-war	/resources/bbtanks-music/the-bringer-of-war.wav
+the-flight-of-the-bumblebee	/resources/bbtanks-music/the-flight-of-the-bumblebee.wav
+trepak	/resources/bbtanks-music/trepak.wav
+
 explosion	/resources/battle-explosion.wav
 
 paper-ball-small	-	0	/resources/paper-ball-small.gif	-
+fireball	-	0	/resources/fireball.gif	-
+grenade	-	0	/resources/grenade.gif	-
 
 flag	-	0	/resources/flag-very-small.png	-
+
+blueflag	-	0	/resources/blueflag.gif	-
+redflag	-	0	/resources/redflag.gif	-
+bluebase	-	0	/resources/bluebase.gif	-
+redbase	-	0	/resources/redbase.gif	-
 
 bedH	-	0	/resources/bed.gif	-
 bedV	-	0	/resources/bed.gif	r
@@ -18,8 +36,8 @@ pencilH	-	0	/resources/pencil.gif	-
 pencilV	-	0	/resources/pencil.gif	r
 
 
-rugH	-	0	/resources/rug.gif	-
-rugV	-	0	/resources/rug.gif	r
+rugV	-	0	/resources/rug.gif	-
+rugH	-	0	/resources/rug.gif	r
 
 tank-bit1	-	0	/resources/tank-bit1.gif	-
 tank-bit2	-	0	/resources/tank-bit2.gif	-
@@ -40,7 +58,9 @@ health-box	-	0	/resources/health-box.jpeg	-
 curse-box	-	0	/resources/curse-box.jpeg	-
 friction-box	-	0	/resources/friction-box.jpeg	-
 muddle-box	-	0	/resources/muddle-box.jpeg	-
- 
+fireball-box	-	0	/resources/fireball-box.jpeg	-
+grenade-box	-	0	/resources/grenade-box.jpeg	- 
+
 tank_sheet	/resources/tank-line.gif	0	0	43	48	1	0
 
 tank_0000	-	0	tank_sheet	0	-

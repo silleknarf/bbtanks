@@ -13,7 +13,7 @@ class CurseBox extends PowerUp {
     void effect(Tank activator) {
     	for ( Tank tank : localInfo.allTanks ) {
     		if (tank != activator) {
-    			localInfo.tankData[tank.colid][localInfo.livesPosition]--;
+    			localInfo.tankData[(tank.colid/2)-1].lives--;
             }
         }
         super.effect(activator);
