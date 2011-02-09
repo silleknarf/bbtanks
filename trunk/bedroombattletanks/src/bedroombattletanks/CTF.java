@@ -16,6 +16,5 @@ public class CTF extends GameType {
 		gameInfo.map1.add(new Pencil(300, 500, 'H', gameInfo)); */
 		new Base(50, 50, gameInfo, gameInfo.allTanks.get(0), "red");
 		new Base(gameInfo.pfWidth-100, gameInfo.pfHeight-100, gameInfo, gameInfo.allTanks.get(1), "blue");
-
 		}
 }
