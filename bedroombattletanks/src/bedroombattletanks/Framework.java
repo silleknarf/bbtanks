@@ -138,18 +138,19 @@ public class Framework extends JGEngine {
 			// check if the game has ended
 			
 			if (!gameInfo.gameLost) {
-			for (int i  = 0; i < gameInfo.tankData.length; i++) {
+			for (int i = 0; i < gameInfo.tankData.length; i++) {
 				if (gameInfo.tankData[i].lives <= 0) {
 					if (i==1) {
 						gameInfo.winner = "Player 2";
 						gameInfo.loser = "Player 1";
 						gameInfo.winnerColor = JGColor.blue;
-					} else {
+					} 
+					if (i==0) {
 						gameInfo.winner = "Player 1";
 						gameInfo.loser = "Player 2";
 						gameInfo.winnerColor = JGColor.red;
 					}
-					gameInfo.gameLost = true;
+				gameInfo.gameLost = true;
 				setGameState("GameOver");
 				}
 			}
@@ -226,7 +227,8 @@ public class Framework extends JGEngine {
 			if (getKey(' ')) {
 				gameInfo = new GameInfo(this);
 				removeObjects(null,0);
-				setGameState("InGame");
+				new GUI(gameInfo, this);
+				setGameState("StartGame");
 			}
 		}
 }

@@ -52,7 +52,7 @@ class GUI extends JFrame implements ActionListener {
 		}
 		public void actionPerformed(ActionEvent e) {
 		    if ("duel".equals(e.getActionCommand())) {
-		    	new Duel(localInfo);
+		    	new Duel(localInfo, localEng);
 				dispose();
 				localEng.setBGImage("wooden-floor");
 				localInfo.guiDone = true;

@@ -42,7 +42,6 @@ public class MapGenerator {
 			case 2: placeObject(new Pencil(0, 0, 'V', gameInfo));
 			}
 		} 
-		//System.out.println();
 		printGrid(objectMap);
 	}
 	boolean[][] initialiseObjectMap(boolean[][] fullObjectMap) {
@@ -131,26 +130,29 @@ public class MapGenerator {
 		}
 		return fullObjectMap;
 	}
+	
 	boolean[][] clearPath(boolean[][] fullObjectMap) {
 		
-	/*	int halfWidth = 2;
-		for (int i = 0; i < mapWidth; i++) {
-			for (int j = 0; j < mapHeight; j++) {
-				for (int offset = -halfWidth; offset <=halfWidth; offset++) {
-					if (i==(j+offset)) {
-						fullObjectMap[i][j] = false;
-					}
-				}
+		DiagonalPath diag = new DiagonalPath(0,0,mapWidth-1,mapHeight-1);
+		for (int[] item : diag.queue) {
+			for (int i = -2; i < 3; i++) {
+				if (item[0]+i >= 0 && item[0]+i < mapWidth)
+					fullObjectMap[item[0]+i][item[1]] = false;
+				if (item[1]+i >= 0 && item[1]+i < mapHeight)
+					fullObjectMap[item[0]][item[1]+i] = false;
 			}
-		} */
-		
+		}
+		return fullObjectMap;
+	}
+
+
 //		PathFinder middleDiagonal = new PathFinder(fullObjectMap,0,mapWidth-1,mapHeight-1,0);
-		PathFinder middleDiagonal = new PathFinder(fullObjectMap,0,0,3,3);
-		for (int[] item : middleDiagonal.queue) {
+//		PathFinder middleDiagonal = new PathFinder(fullObjectMap,0,0,3,3);
+/*		for (int[] item : middleDiagonal.queue) {
 			fullObjectMap[item[0]][item[1]] = false;
 		}
-		return fullObjectMap; 
-	}
+		return fullObjectMap;
+		*/ 
 
 	
 	void placeObject(Obstacle obs){
